@@ -37,7 +37,7 @@ static void pantalaimon(){
 int main(int ac, char **av){
 	struct sockaddr_in servaddr;
 	int listen_fd, return_fd;
-	char str[100]
+	char str[100];
 
 	if (ac == 1){
 		perror("USAGE: ./server [-D flag] PORT-NUMBER\n-D is a flag to set the server as a daemon. ");
@@ -68,8 +68,7 @@ int main(int ac, char **av){
 	while (1){
 		bzero(str, 100);
 		read(return_fd, str, 100);
-		if (str)
-			dprintf(return_fd, "pong\npong\n");
+		dprintf(return_fd, "pong\npong\n");
 	}
 	return (0);
 }
